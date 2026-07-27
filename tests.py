@@ -56,3 +56,11 @@ class TestBooksCollector:
         collector.set_book_genre('ОНО', 'Ужасы')
         collector.set_book_genre('Шерлок Холмс', 'Детективы')
         assert collector.get_books_for_children() == ['Дюна']
+
+    def test_add_book_in_favorites_returns_favorite_book(self):
+        collector = BooksCollector()
+        collector.add_new_book('Дюна')
+        collector.set_book_genre('Дюна', 'Фантастика')
+        collector.add_book_in_favorites('Дюна')
+        collector.add_book_in_favorites('Дюна')
+        assert collector.get_list_of_favorites_books() == ['Дюна']
