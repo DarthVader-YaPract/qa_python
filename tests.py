@@ -64,3 +64,11 @@ class TestBooksCollector:
         collector.add_book_in_favorites('Дюна')
         collector.add_book_in_favorites('Дюна')
         assert collector.get_list_of_favorites_books() == ['Дюна']
+    def test_delete_book_from_favorites_book_deletes_from_favorite(self):
+        collector = BooksCollector()
+        collector.add_new_book('Дюна')
+        collector.add_book_in_favorites('Дюна')
+        collector.delete_book_from_favorites('Дюна')
+        assert len(collector.get_list_of_favorites_books()) == 0
+
+
