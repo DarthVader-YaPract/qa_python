@@ -1,6 +1,5 @@
 from main import BooksCollector
-import pytest
-# класс TestBooksCollector объединяет набор тестов, которыми мы покрываем наше приложение BooksCollector
+import pytest # класс TestBooksCollector объединяет набор тестов, которыми мы покрываем наше приложение BooksCollector
 # обязательно указывать префикс Test
 class TestBooksCollector:
 
@@ -33,3 +32,9 @@ class TestBooksCollector:
         collector = BooksCollector()
         collector.add_new_book(name)
         assert collector.get_books_genre() == {}
+
+    def test_set_book_genre_is_set(self):
+        collector = BooksCollector()
+        collector.add_new_book('Дюна')
+        collector.set_book_genre('Дюна', 'Фантастика')
+        assert collector.get_book_genre('Дюна') == 'Фантастика'

@@ -24,7 +24,7 @@ class BooksCollector:
     def get_books_with_specific_genre(self, genre):
         books_with_specific_genre = []
         if self.books_genre and genre in self.genre:
-            for name, book_genre in self.books_genre.items():
+            for name, collector_genre in self.books_genre.items():
                 if book_genre == genre:
                     books_with_specific_genre.append(name)
         return books_with_specific_genre
