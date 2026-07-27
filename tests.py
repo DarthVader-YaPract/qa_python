@@ -72,3 +72,13 @@ class TestBooksCollector:
         assert len(collector.get_list_of_favorites_books()) == 0
 
 
+    def test_get_list_of_favorites_books_returns_all_favorite_books(self):
+        collector = BooksCollector()
+        collector.add_new_book('Дюна')
+        collector.add_new_book('ОНО')
+        collector.add_new_book('Шерлок Холмс')
+        collector.add_book_in_favorites('Дюна')
+        collector.add_book_in_favorites('ОНО')
+        collector.add_book_in_favorites('Шерлок Холмс')
+        assert collector.get_list_of_favorites_books() == ['Дюна', 'ОНО', 'Шерлок Холмс']
+
