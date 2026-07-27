@@ -22,3 +22,8 @@ class TestBooksCollector:
 
     # напиши свои тесты ниже
     # чтобы тесты были независимыми в каждом из них создавай отдельный экземпляр класса BooksCollector()
+    def test_add_new_book_same_book_not_added_twice(self):
+        collector = BooksCollector()
+        collector.add_new_book('Дюна')
+        collector.add_new_book('Дюна')
+        assert len(collector.get_books_genre()) == 1
