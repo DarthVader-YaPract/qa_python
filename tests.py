@@ -1,6 +1,8 @@
 from main import BooksCollector
+
 import pytest # класс TestBooksCollector объединяет набор тестов, которыми мы покрываем наше приложение BooksCollector
 # обязательно указывать префикс Test
+
 class TestBooksCollector:
 
     # пример теста:
@@ -60,10 +62,10 @@ class TestBooksCollector:
     def test_add_book_in_favorites_returns_favorite_book(self):
         collector = BooksCollector()
         collector.add_new_book('Дюна')
-        collector.set_book_genre('Дюна', 'Фантастика')
         collector.add_book_in_favorites('Дюна')
         collector.add_book_in_favorites('Дюна')
         assert collector.get_list_of_favorites_books() == ['Дюна']
+        
     def test_delete_book_from_favorites_book_deletes_from_favorite(self):
         collector = BooksCollector()
         collector.add_new_book('Дюна')
