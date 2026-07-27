@@ -46,3 +46,13 @@ class TestBooksCollector:
         collector.set_book_genre('Дюна', 'Фантастика')
         collector.set_book_genre('ОНО', 'Ужасы')
         assert collector.get_books_with_specific_genre('Фантастика') == ['Дюна']
+
+    def test_get_books_for_children_excludes_age_rating_genres(self):
+        collector = BooksCollector()
+        collector.add_new_book('Дюна')
+        collector.add_new_book('ОНО')
+        collector.add_new_book('Шерлок Холмс')
+        collector.set_book_genre('Дюна', 'Фантастика')
+        collector.set_book_genre('ОНО', 'Ужасы')
+        collector.set_book_genre('Шерлок Холмс', 'Детективы')
+        assert collector.get_books_for_children() == ['Дюна']
